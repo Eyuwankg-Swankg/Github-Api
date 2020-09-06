@@ -1,6 +1,8 @@
-import React from "react";
+import React,{useContext} from "react";
 import {Link} from "react-router-dom"
-const Header = ({ authorized }) => {
+import Context from "../context/Context"
+const Header = () => {
+  const { authorized } = useContext(Context);
     const style = {
       textDecoration: "none",
       color: "snow",

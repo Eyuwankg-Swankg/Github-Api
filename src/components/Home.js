@@ -21,16 +21,16 @@ const Home = () => {
   };
   const fireUp = (e) => {
     e.preventDefault();
-    // if(!authorized)
-    //     alert("Please Sign In or Sign Up")
-    // else
+    if(!authorized)
+        alert("Please Sign In or Sign Up")
+    else
     fetchDetails();
   };
   return (
     <div id="home-container">
       <div id="search">
         <input
-          placeholder="   Please Enter Username"
+          placeholder="   Please Enter Github Username"
           type="name"
           name="name"
           value={query}

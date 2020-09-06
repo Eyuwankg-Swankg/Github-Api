@@ -1,8 +1,26 @@
-import React,{useState} from 'react'
-
+import React,{useState, useContext} from 'react'
+import Context from "../context/Context"
+import firebase from "firebase";
+import { Redirect } from "react-router-dom";
 const SignUp = () => {
      const [email, setEmail] = useState("");
      const [password, setPassword] = useState("");
+     const {authorized,setAuthorized}= useContext(Context);
+
+     const auth= () => {
+        firebase.auth().createUserWithEmailAndPassword(email, password).then((response)=>{
+          setAuthorized(true)
+        }).catch((error)=>{
+          if(error)
+            alert(error.message)
+        })
+     }
+     const submit=(e)=>{
+       e.preventDefault();
+       auth();
+     }
+     if(authorized)
+      return <Redirect to="/"/>
     return (
       <div id="sign">
         <div id="sign-box">
@@ -22,7 +40,7 @@ const SignUp = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button>Sign Up</button>
+            <button onClick={submit}>Sign Up</button>
           </form>
         </div>
       </div>
