@@ -1,0 +1,213 @@
+*{
+  padding:0px;
+  margin:0px;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Header */
+#header{
+  widows: 100%;
+  height: 10vh;
+  background-color:rgb(204, 75, 43);
+  padding:40px;
+  display:flex;
+  justify-content:space-between;
+  align-items: center;
+  color:snow;
+  letter-spacing:2px;
+  font-weight: bold;
+}
+
+#list{
+  display:flex; 
+  justify-content: space-between;
+  align-items: center;
+  width:15%;
+}
+
+#list li{
+  list-style-type: none;
+  cursor:pointer;
+}
+
+@media screen and (max-width:1128px){
+  #list{
+    width:20%;
+  }
+}
+
+@media screen and (max-width:850px){
+  #list{
+    width:30%;
+  }
+}
+
+@media screen and (max-width:600px){
+  #list{
+    width:40%;
+  }
+  #header{
+    padding:15px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height:15vh;
+  }
+}
+
+/* Sign In */
+#sign{
+  height:87.5vh;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#sign-box{
+  width:40%;
+  height:55vh;
+  background:rgb(204, 75, 43);
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#sign-box h1{
+  height:30%;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  color:snow; 
+}
+
+form{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height:68%;
+  align-items: center;
+}
+
+form input{
+  width:70%;
+  height:15%;
+  outline: none;
+  border-radius: 10px;
+  border:none;
+}
+
+form button{
+  width:30%;
+  height: 15%;
+  font-weight: bold;
+  letter-spacing:1px;
+  border-radius: 10px;
+  outline: none;
+  border:none;
+}
+
+/* Home */
+#home-container{
+  width:100%;
+  height:87.5vh;
+}
+/* Repo Search */
+#search{
+  height: 30%;
+  display:flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+}
+
+#search input{
+  outline:none;
+  border:2px solid rgb(204, 75, 43);
+  width:30%;
+  height:40px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+
+#search button{
+  outline:none;
+  border:none;
+  margin:10px;
+  width:10%;
+  height: 30px;
+  border-radius: 5px;
+  background:rgb(204, 75, 43);
+  color:snow;
+  font-weight: bold;
+  letter-spacing:2px;
+  cursor:pointer;
+}
+
+#search button:hover{
+  background:rgb(212, 58, 20);
+}
+/* Card and Repositories */
+#card-repo{
+  height: 80%;
+  width: 100%;
+  padding:20px;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content:center;
+}
+
+/* Card */
+#card{
+  width:30%;
+}
+
+/* Repositories */
+#repocard-container{
+  width:68%;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content:space-evenly;
+  align-items: center;
+  padding:20px;
+  overflow-y:auto;
+}
+#repocard{
+  width: 25%;
+  border:2px solid rgb(212, 58, 20);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-evenly;
+  align-items: center;
+  padding:10px;
+  margin:5px;
+  height:100px;
+} 
+
+#repocard h3,h5,h6{
+  width:100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+
+
+
+
+
+
+/* Not Found */
+#notfound{
+  height: 87.5vh;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center; 
+}
+
+#notfound h1{
+  font-weight: bold;
+  letter-spacing:3px;
+  font-size: 330%;
+}
