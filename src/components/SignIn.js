@@ -1,30 +1,34 @@
-import React, { useState ,useContext} from "react";
+import React, { useState, useContext } from "react";
 import Context from "../context/Context";
 import firebase from "firebase";
 import { Redirect } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-const { authorized, setAuthorized } = useContext(Context);
-     const auth = () => {
-       firebase
-         .auth()
-         .signInWithEmailAndPassword(email, password)
-         .then((response) => {
-           setAuthorized(true);
-         })
-         .catch((error) => {
-           if (error) alert(error.message);
-         });
-     };
-     const submit = (e) => {
-       e.preventDefault();
-       auth();
-     };
-     if (authorized) return <Redirect to="/" />;
+  const { authorized, setAuthorized } = useContext(Context);
+  const auth = () => {
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then((response) => {
+        setAuthorized(true);
+      })
+      .catch((error) => {
+        if (error) alert(error.message);
+      });
+  };
+  const submit = (e) => {
+    e.preventDefault();
+    auth();
+  };
+  if (authorized) return <Redirect to="/" />;
   return (
     <div id="sign">
+      <Helmet>
+        <title>Sign In</title>
+      </Helmet>
       <div id="sign-box">
         <h1>Sign In</h1>
         <form>

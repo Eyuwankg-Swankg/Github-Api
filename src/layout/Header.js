@@ -1,19 +1,28 @@
-import React,{useContext} from "react";
-import {Link} from "react-router-dom"
-import Context from "../context/Context"
+import { auth } from "firebase";
+import React, { useContext, useState } from "react";
+import { Link, Redirect } from "react-router-dom";
+import Context from "../context/Context";
 const Header = () => {
-  const { authorized } = useContext(Context);
-    const style = {
-      textDecoration: "none",
-      color: "snow",
-    };
+  const { authorized, setAuthorized } = useContext(Context);
+  const style = {
+    textDecoration: "none",
+    color: "snow",
+    cursor: "pointer",
+  };
   return (
     <div id="header">
       <div style={{ cursor: "pointer" }}>
-        <Link to="/" style={style}>Github-Repo</Link>
+        <Link to="/" style={style}>
+          Github-Repo
+        </Link>
       </div>
       {authorized ? (
-        <div>Logout</div>
+        <div
+          style={{ cursor: "pointer" }}
+          onClick={() => setAuthorized(!authorized)}
+        >
+          Logout
+        </div>
       ) : (
         <ul id="list">
           <li>

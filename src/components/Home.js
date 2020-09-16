@@ -2,7 +2,8 @@ import React, { useState, useContext } from "react";
 import Context from "../context/Context";
 import Axios from "axios";
 import Card from "./Card";
-import Repo from "./Repo"
+import Repo from "./Repo";
+import { Helmet } from "react-helmet";
 const Home = () => {
   const [query, setQuery] = useState("");
   const { user, setUser, authorized } = useContext(Context);
@@ -21,13 +22,14 @@ const Home = () => {
   };
   const fireUp = (e) => {
     e.preventDefault();
-    if(!authorized)
-        alert("Please Sign In or Sign Up")
-    else
-    fetchDetails();
+    if (!authorized) alert("Please Sign In or Sign Up");
+    else fetchDetails();
   };
   return (
     <div id="home-container">
+      <Helmet>
+        <title>Github Search</title>
+      </Helmet>
       <div id="search">
         <input
           placeholder="   Please Enter Github Username"
@@ -36,12 +38,14 @@ const Home = () => {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <button onClick={fireUp}>Search</button>
+        <button onClick={fireUp} style={{ cursor: "pointer" }}>
+          Search
+        </button>
       </div>
       {user ? (
         <div id="card-repo">
           <Card />
-          <Repo/>
+          <Repo />
         </div>
       ) : (
         <></>

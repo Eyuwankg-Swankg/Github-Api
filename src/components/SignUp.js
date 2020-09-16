@@ -2,6 +2,7 @@ import React,{useState, useContext} from 'react'
 import Context from "../context/Context"
 import firebase from "firebase";
 import { Redirect } from "react-router-dom";
+import { Helmet } from 'react-helmet';
 const SignUp = () => {
      const [email, setEmail] = useState("");
      const [password, setPassword] = useState("");
@@ -23,6 +24,9 @@ const SignUp = () => {
       return <Redirect to="/"/>
     return (
       <div id="sign">
+        <Helmet>
+          <title>Sign Up</title>
+        </Helmet>
         <div id="sign-box">
           <h1>Sign Up</h1>
           <form>
